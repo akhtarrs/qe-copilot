@@ -1,0 +1,109 @@
+# Authentication Actions
+# Handles login and logout for all user personas.
+# Replace field labels and button text with your application's actual values.
+
+actions:
+
+  - action_id: login_as_admin
+    name: "Login as Admin"
+    description: "Authenticates an admin user and lands on the home page or dashboard"
+    pre_check: >
+      Take a snapshot first. If the application is already showing an authenticated state
+      (home page, dashboard, or main navigation visible), skip ALL steps below and mark PASS.
+      Do NOT navigate again if already logged in.
+    parameters:
+      - name: email
+        required: false
+        default: "${env.ADMIN_EMAIL}"
+      - name: password
+        required: false
+        default: "${env.ADMIN_PASSWORD}"
+    steps:
+      - description: "Snapshot current page — skip all if already authenticated"
+        tool: browser_snapshot
+      - description: "Navigate to the application login page"
+        tool: browser_navigate
+        params:
+          url: "${env.BASE_URL}"
+      - description: "Snapshot login page to confirm it loaded"
+        tool: browser_snapshot
+      - description: "Enter email or username"
+        tool: browser_type
+        params:
+          element: "Email input or Username input"
+          text: "${params.email}"
+      - description: "Enter password"
+        tool: browser_type
+        params:
+          element: "Password input"
+          text: "${params.password}"
+      - description: "Click the Sign In or Login button"
+        tool: browser_click
+        params:
+          element: "Sign In button or Login button"
+      - description: "Screenshot after login"
+        tool: browser_take_screenshot
+    assertions:
+      - description: "Home page or dashboard is visible after login"
+        tool: browser_snapshot
+        check: "Home page, dashboard, or main navigation is visible. No login form."
+
+  - action_id: login_as_user
+    name: "Login as User"
+    description: "Authenticates a standard user and lands on the home page"
+    pre_check: >
+      Take a snapshot first. If the application is already showing an authenticated state,
+      skip ALL steps below and mark PASS.
+    parameters:
+      - name: email
+        required: false
+        default: "${env.USER_EMAIL}"
+      - name: password
+        required: false
+        default: "${env.USER_PASSWORD}"
+    steps:
+      - description: "Snapshot current page — skip all if already authenticated"
+        tool: browser_snapshot
+      - description: "Navigate to the application login page"
+        tool: browser_navigate
+        params:
+          url: "${env.BASE_URL}"
+      - description: "Snapshot login page"
+        tool: browser_snapshot
+      - description: "Enter email or username"
+        tool: browser_type
+        params:
+          element: "Email input or Username input"
+          text: "${params.email}"
+      - description: "Enter password"
+        tool: browser_type
+        params:
+          element: "Password input"
+          text: "${params.password}"
+      - description: "Click the Sign In or Login button"
+        tool: browser_click
+        params:
+          element: "Sign In button or Login button"
+      - description: "Screenshot after login"
+        tool: browser_take_screenshot
+    assertions:
+      - description: "Home page or dashboard is visible"
+        tool: browser_snapshot
+        check: "Home page, dashboard, or main navigation is visible. No login form."
+
+  - action_id: logout
+    name: "Logout"
+    description: "Logs out the current user and returns to the login page"
+    steps:
+      - description: "Snapshot to locate the logout control"
+        tool: browser_snapshot
+      - description: "Click the user avatar, profile menu, or logout button"
+        tool: browser_click
+        params:
+          element: "Logout button or user avatar menu"
+      - description: "Screenshot after logout"
+        tool: browser_take_screenshot
+    assertions:
+      - description: "Login page is visible"
+        tool: browser_snapshot
+        check: "Login form or sign-in page is visible. No authenticated navigation."

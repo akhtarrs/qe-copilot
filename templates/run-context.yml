@@ -1,0 +1,20 @@
+# Run Context — environment.yml template
+# Written to runs/<run-id>/context/environment.yml at boot step 12.
+# Contains the fully resolved environment for this run.
+
+run_id: ""
+suite: ""
+environment: ""
+started_at: ""
+browser: ""
+
+resolved_config:
+  base_url: ""
+  api_url: ""
+  headless: false
+  maximize: true
+
+test_cases:
+  - id: ""
+    title: ""
+    steps: []

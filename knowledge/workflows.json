@@ -1,0 +1,21 @@
+{
+  "_instructions": "Populate this file with your application's business workflows. Include status transitions and the exact UI steps required at each stage.",
+  "workflows": [
+    {
+      "_instructions": "Copy this block for each workflow in your application",
+      "name": "workflow_name",
+      "description": "What this workflow represents",
+      "statuses": ["Status1", "Status2", "Status3"],
+      "transitions": {
+        "Status1": ["Status2"],
+        "Status2": ["Status3"]
+      },
+      "steps": [
+        {
+          "step": "Description of the UI action required to advance to next status",
+          "_last_verified_run": null
+        }
+      ]
+    }
+  ]
+}

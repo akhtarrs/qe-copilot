@@ -1,0 +1,7 @@
+suite:
+  name: smoke
+  description: "Core happy-path tests — run on every deployment"
+  on_failure: continue
+  tests:
+    - TC-001
+    # Add more test case IDs here

@@ -1,0 +1,11 @@
+# UAT Environment Configuration
+environment:
+  name: uat
+  base_url: "${env.UAT_BASE_URL}"
+  api_url: "${env.UAT_API_URL}"
+  db_host: "${env.UAT_DB_HOST}"
+  flags:
+    debug_logging: false
+    mock_payments: true
+    mock_email: false
+    mock_sms: false

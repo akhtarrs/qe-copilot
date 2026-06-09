@@ -1,0 +1,49 @@
+# QE-Copilot — Global Configuration
+# The AI agent reads AGENT.md first, then reads this file.
+
+framework:
+  name: "My Application Test Suite"   # Replace with your project name
+  version: "1.0"
+  spec: "AGENT.md"
+
+execution:
+  mode: mcp                        # mcp only — no script fallback
+  browser: msedge                  # msedge (Windows) | chrome (macOS/Linux) | firefox | webkit
+  headless: false                  # true for CI, false for local debugging
+  maximize: true                   # agent calls browser_resize at boot to maximise the window
+  timeout_seconds: 30
+  page_load_timeout_seconds: 15
+  retry_failed: 1                  # retry a failed step once before marking FAIL
+  slow_mo_ms: 0                    # ms pause between MCP tool calls (0 = no delay)
+
+environment:
+  target: qa                       # qa | uat | prod — matches configs/<target>.yml
+  config: configs/qa.yml
+
+suite:
+  name: smoke                      # matches suites/<name>.yml
+  file: suites/smoke.yml
+
+artifacts:
+  base_path: runs/
+  screenshots: true
+  videos: false
+  traces: false
+  network: false
+  screenshot_on_action_boundary: true
+  screenshot_on_failure: true
+
+mcp:
+  snapshot_before_action: true
+  snapshot_after_action: false
+  tool_timeout_seconds: 10
+
+reporting:
+  formats:
+    - json
+    - html
+  output_path: reports/
+  copy_to_latest: true
+  history_retention_runs: 50
+  # Full run evidence stays in runs/<run-id>/
+  # report.json and report.html embed run_id so readers can navigate back to runs/ for details

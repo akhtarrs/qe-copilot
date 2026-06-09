@@ -1,0 +1,27 @@
+{
+  "_instructions": "Populate this file with your application's REST API endpoints. Used by the agent to verify backend state when UI assertions are insufficient. Remove this file if your app has no API.",
+  "base_url": "${env.BASE_URL}",
+  "api_base": "${env.API_URL}",
+  "_api_base_note": "Set API_URL in .env to match your active environment (QA/UAT/PROD). Do not hardcode a specific environment URL here.",
+  "auth": {
+    "_instructions": "Describe how the API is authenticated",
+    "login_endpoint": "/api/auth/login",
+    "method": "POST",
+    "body": { "email": "<email>", "password": "<password>" },
+    "token_field": "access_token",
+    "header": "Authorization: Bearer <token>"
+  },
+  "endpoints": [
+    {
+      "_instructions": "Copy this block for each API resource",
+      "resource": "ResourceName",
+      "endpoints": [
+        { "method": "GET",    "path": "/api/resource",      "description": "List all" },
+        { "method": "GET",    "path": "/api/resource/{id}", "description": "Get by ID" },
+        { "method": "POST",   "path": "/api/resource",      "description": "Create" },
+        { "method": "PUT",    "path": "/api/resource/{id}", "description": "Update" },
+        { "method": "DELETE", "path": "/api/resource/{id}", "description": "Delete" }
+      ]
+    }
+  ]
+}

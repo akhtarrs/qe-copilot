@@ -1,0 +1,11 @@
+# QA Environment Configuration
+environment:
+  name: qa
+  base_url: "${env.QA_BASE_URL}"
+  api_url: "${env.QA_API_URL}"
+  db_host: "${env.QA_DB_HOST}"
+  flags:
+    debug_logging: true
+    mock_payments: true
+    mock_email: true
+    mock_sms: true

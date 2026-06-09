@@ -1,0 +1,37 @@
+# Test Case Template
+# Copy this file to testcases/<feature>/TC-NNN.yml
+# Remove this comment block before using.
+
+test_case:
+  id: TC-NNN                          # Unique ID — zero-padded (TC-001, TC-002 ...)
+  title: "Human readable test title"
+  feature: "Module or Feature name"   # e.g. Authentication, Inventory, Checkout
+  priority: high                      # high | medium | low
+  persona: admin                      # role label — documentation only
+
+  test_data:
+    user: users.admin1                # → testdata/users.yml → key admin1
+    # entity: entities.record001      # → testdata/entities.yml → key record001
+
+  preconditions:
+    - "Application is accessible at ${env.BASE_URL}"
+    - "Required test data exists"
+
+  steps:                              # Each step must match an action name in action-catalog.yml exactly
+    - Login as Admin
+    - Navigate to Home
+    # - Create Record
+    # - Save
+
+  step_params:                        # Pass runtime parameters to specific steps
+    # Create Record:
+    #   name: "${testdata.entities.record001.name}"
+    #   description: "Test description"
+
+  expected:                           # One assertion per expected outcome
+    - "User is logged in and on the home page"
+    - "Record Created"
+    - "Record appears in the list with correct name"
+
+  tags:
+    - smoke                           # smoke | regression | e2e | <feature-tag>

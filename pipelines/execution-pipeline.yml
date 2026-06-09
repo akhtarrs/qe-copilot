@@ -1,0 +1,58 @@
+# QE-Copilot Execution Pipeline — Reference
+# This file illustrates the execution flow for documentation purposes.
+# AGENT.md is the authoritative operating manual — follow it for all execution decisions.
+
+pipeline:
+  name: "QE-Copilot MCP Execution Pipeline"
+  version: "1.0"
+
+  phases:
+    - id: boot
+      name: "Boot Sequence"
+      steps:
+        - "Read configs/ai-test-config.yml"
+        - "Read configs/<environment>.yml"
+        - "Read knowledge/*.json"
+        - "Probe base_url — abort if unreachable"
+        - "Create runs/<suite>-YYYYMMDD-HHmmss/"
+        - "Read suites/<suite>.yml"
+        - "Read testcases/**/<TC-ID>.yml"
+        - "Read actions/action-catalog.yml"
+        - "Read action source files"
+        - "Read testdata/*.yml"
+        - "Resolve all variables"
+        - "Write context/ files"
+        - "Open browser"
+
+    - id: execute
+      name: "Execute"
+      roles: [Planner, Executor]
+      steps:
+        - "Plan: resolve all steps and params"
+        - "Execute: call MCP tools in order"
+        - "Screenshot at every action boundary"
+        - "Run inline micro-assertions"
+
+    - id: validate
+      name: "Validate"
+      roles: [Validator]
+      steps:
+        - "Evaluate each expected assertion"
+        - "Write BUG-NNN.md for every FAIL"
+
+    - id: report
+      name: "Report"
+      roles: [Reporter]
+      steps:
+        - "Write execution.json and report.json to runs/<run-id>/"
+        - "Write report.html to runs/<run-id>/"
+        - "Copy report.html + report.json to reports/latest/ and reports/history/<run-id>/"
+        - "Close browser"
+
+    - id: learn
+      name: "Learn"
+      roles: [Learner]
+      steps:
+        - "Consolidate knowledge-updates.json into knowledge/*.json"
+        - "Append summary to knowledge/learning-log.json"
+        - "Update action files for any retry entries"

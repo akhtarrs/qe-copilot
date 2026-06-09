@@ -1,0 +1,12 @@
+# Production Environment Configuration
+# WARNING: Only run verified, read-only test cases against production.
+environment:
+  name: prod
+  base_url: "${env.PROD_BASE_URL}"
+  api_url: "${env.PROD_API_URL}"
+  db_host: "${env.PROD_DB_HOST}"
+  flags:
+    debug_logging: false
+    mock_payments: false
+    mock_email: false
+    mock_sms: false

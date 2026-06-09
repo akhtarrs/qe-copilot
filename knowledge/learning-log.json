@@ -1,0 +1,4 @@
+{
+  "_instructions": "This file is written automatically by the agent after every run — you never edit it manually. One entry is appended per run. Schema: { run_id, timestamp, suite, tests_run[], discoveries_count, retries_count, knowledge_files_updated[], summary }. See AGENT.md Phase 5 Step B for the full schema.",
+  "entries": []
+}

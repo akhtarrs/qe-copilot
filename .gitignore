@@ -1,0 +1,8 @@
+.env
+node_modules/
+runs/*/
+!runs/.gitkeep
+reports/latest/*
+reports/history/*/
+!reports/latest/.gitkeep
+!reports/history/.gitkeep

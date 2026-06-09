@@ -1,0 +1,33 @@
+{
+  "_template": "report.json — consolidated run summary. Copied to reports/latest/ after every run.",
+  "run_id": "",
+  "suite": "",
+  "suite_display_name": "",
+  "environment": "",
+  "browser": "<from configs/ai-test-config.yml execution.browser>",
+  "started_at": "",
+  "completed_at": "",
+  "duration_seconds": 0,
+  "total": 0,
+  "passed": 0,
+  "failed": 0,
+  "skipped": 0,
+  "pass_rate": "0%",
+  "status": "PASSED",
+  "tests": [
+    {
+      "id": "",
+      "title": "",
+      "status": "PASS",
+      "duration_seconds": 0,
+      "assertions": {
+        "total": 0,
+        "passed": 0,
+        "failed": 0
+      },
+      "defects": [],
+      "screenshots": []
+    }
+  ],
+  "defects": []
+}

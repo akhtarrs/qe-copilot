@@ -1,0 +1,22 @@
+{
+  "_instructions": "Populate this file with your application's data models. Include ID formats, field types, and constraints the agent needs to recognise.",
+  "entities": [
+    {
+      "_instructions": "Copy this block for each entity in your application",
+      "name": "EntityName",
+      "id_format": "PREFIX-NNNNN",
+      "id_example": "PREFIX-10001",
+      "fields": [
+        {
+          "name": "field_name",
+          "type": "string | number | date | datetime-local | enum | boolean",
+          "required": true,
+          "values": ["option1", "option2"],
+          "_note": "Add constraints, special handling notes, or date format requirements here"
+        }
+      ],
+      "_last_verified_run": null,
+      "_last_verified_tc": null
+    }
+  ]
+}

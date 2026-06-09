@@ -1,0 +1,43 @@
+# Navigation Actions
+# Handles navigating between sections of the application.
+# Replace tab labels, menu items, and URLs with your application's actual values.
+
+actions:
+
+  - action_id: navigate_to_home
+    name: "Navigate to Home"
+    description: "Navigates to the application home page or dashboard"
+    steps:
+      - description: "Snapshot to locate the Home or Dashboard link"
+        tool: browser_snapshot
+      - description: "Click the Home or Dashboard link in navigation"
+        tool: browser_click
+        params:
+          element: "Home link or Dashboard tab"
+      - description: "Snapshot to confirm navigation"
+        tool: browser_snapshot
+      - description: "Screenshot of home page"
+        tool: browser_take_screenshot
+    assertions:
+      - description: "Home page or dashboard is visible"
+        tool: browser_snapshot
+        check: "Home page heading or dashboard content is visible"
+
+  # Copy this block for each additional navigation action:
+  #
+  # - action_id: navigate_to_<section>
+  #   name: "Navigate to <Section>"
+  #   description: "Navigates to the <Section> module"
+  #   steps:
+  #     - description: "Click the <Section> tab or menu item"
+  #       tool: browser_click
+  #       params:
+  #         element: "<Section> tab or link"
+  #     - description: "Snapshot to confirm navigation"
+  #       tool: browser_snapshot
+  #     - description: "Screenshot"
+  #       tool: browser_take_screenshot
+  #   assertions:
+  #     - description: "<Section> page is visible"
+  #       tool: browser_snapshot
+  #       check: "<Section> heading or content is visible"

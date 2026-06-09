@@ -1,0 +1,59 @@
+# Action Template
+# Copy this file to actions/<category>/<name>.yml
+# Register the new action in actions/action-catalog.yml after creating it.
+# Multiple actions can live in the same file (grouped by feature).
+# Remove this comment block before using.
+
+actions:
+
+  - action_id: action_name_snake_case
+    name: "Action Name in Title Case"  # Must match exactly how test cases reference this action
+    description: "What this action does — one sentence"
+
+    # Optional: skip all steps if already in target state
+    pre_check: >
+      Take a snapshot first. If <target condition already met>, skip all steps and mark PASS.
+
+    # Optional: guard against common misuse
+    warning: >
+      Do NOT <dangerous operation> — describe what could go wrong.
+
+    parameters:
+      - name: param_name
+        description: "What this parameter controls"
+        required: true             # true | false
+        # default: "value"         # omit if required: true; supports ${...} syntax
+
+    steps:
+      - description: "Snapshot before acting — confirm you are on the right page"
+        tool: browser_snapshot
+
+      - description: "Navigate to target URL (only if not already there)"
+        tool: browser_navigate
+        params:
+          url: "${env.BASE_URL}/path"
+
+      - description: "Click a button or link using natural language label"
+        tool: browser_click
+        params:
+          element: "Button label or ARIA description"
+
+      - description: "Type into a text input or textarea"
+        tool: browser_type
+        params:
+          element: "Field label or placeholder text"
+          text: "${params.param_name}"
+
+      - description: "Select from a native <select> dropdown — use this, NOT browser_type"
+        tool: browser_select_option
+        params:
+          element: "Select element label"
+          value: "${params.param_name}"
+
+      - description: "Screenshot at action boundary"
+        tool: browser_take_screenshot
+
+    assertions:
+      - description: "Expected state after this action completes"
+        tool: browser_snapshot
+        check: "What should be visible in the accessibility tree"

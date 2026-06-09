@@ -1,0 +1,16 @@
+# Domain Entities — Test Data
+# Rename this file to match your domain (e.g. customers.yml, orders.yml, products.yml).
+# Referenced as: ${testdata.entities.<key>.<field>}
+# Example: ${testdata.entities.record001.name}
+
+record001:
+  name: "Sample Record 001"
+  description: "A sample entity for testing"
+  status: active
+  # Add fields specific to your domain
+
+# Add more entities as needed:
+# record002:
+#   name: "Sample Record 002"
+#   description: "Another sample entity"
+#   status: inactive

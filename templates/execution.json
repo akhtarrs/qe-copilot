@@ -1,0 +1,46 @@
+{
+  "_template": "execution.json — per-step MCP call record. One file per run. Schema reference only.",
+  "run_id": "",
+  "suite": "",
+  "environment": "",
+  "browser": "<from configs/ai-test-config.yml execution.browser>",
+  "started_at": "",
+  "completed_at": "",
+  "duration_seconds": 0,
+  "tests": [
+    {
+      "id": "",
+      "title": "",
+      "persona": "",
+      "status": "PASS",
+      "started_at": "",
+      "completed_at": "",
+      "duration_seconds": 0,
+      "steps": [
+        {
+          "action": "",
+          "status": "PASS",
+          "mcp_calls": [
+            {
+              "tool": "",
+              "params": {},
+              "result": "OK",
+              "duration_ms": 0
+            }
+          ],
+          "screenshot": "",
+          "notes": ""
+        }
+      ],
+      "assertions": [
+        {
+          "description": "",
+          "result": "PASS",
+          "actual": "",
+          "evidence_screenshot": ""
+        }
+      ],
+      "defect_id": null
+    }
+  ]
+}

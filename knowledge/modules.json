@@ -1,0 +1,30 @@
+{
+  "_instructions": "Populate this file with your application's UI knowledge. The agent reads this before planning to know exact button labels, field types, and page structure. Add one entry per page or module.",
+  "app": "Your Application Name",
+  "nav": {
+    "_instructions": "Describe your app's navigation structure — sidebar, top nav, tabs, etc.",
+    "structure": "e.g. Top navigation bar with tabs",
+    "example_selector": ".nav-link[href='/<section>']"
+  },
+  "pages": {
+    "_instructions": "Add one block per page or module. Use exact UI text for all labels.",
+    "login": {
+      "url": "${env.BASE_URL}",
+      "elements": {
+        "email_field": "Email input or Username input — exact placeholder text",
+        "password_field": "Password input",
+        "login_button": "Sign In button or Login button — exact button text",
+        "_last_verified_run": null,
+        "_last_verified_tc": null
+      }
+    },
+    "home": {
+      "url": "${env.BASE_URL}/home",
+      "elements": {
+        "_instructions": "Add exact button labels, headings, and UI element descriptions here",
+        "_last_verified_run": null,
+        "_last_verified_tc": null
+      }
+    }
+  }
+}

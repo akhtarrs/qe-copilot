@@ -1,0 +1,45 @@
+{
+  "_template": "knowledge-update.json — discoveries logged during a run. Merged into knowledge/ at step 21.",
+  "run_id": "",
+  "discovered": [
+    {
+      "type": "ui_element",
+      "module": "<module-name>",
+      "key": "<element-key>",
+      "value": "<exact-label-observed>",
+      "selector_hint": "<css-or-aria-hint>",
+      "confidence": "confirmed",
+      "source_tc": "TC-001"
+    },
+    {
+      "type": "form_field",
+      "module": "<module-name>",
+      "field": "<field-name>",
+      "input_type": "select_dropdown | text | textarea | datetime-local | checkbox",
+      "note": "special handling required",
+      "source_tc": "TC-001"
+    },
+    {
+      "type": "business_rule",
+      "module": "<module-name>",
+      "rule": "description of the rule observed",
+      "source_tc": "TC-001"
+    },
+    {
+      "type": "data_format",
+      "entity": "<EntityName>",
+      "field": "<field-name>",
+      "format": "<format-pattern>",
+      "example": "<example-value>",
+      "source_tc": "TC-001"
+    },
+    {
+      "type": "retry",
+      "module": "<module-name>",
+      "element": "<element-key>",
+      "original_hint": "<what you tried first>",
+      "actual_label": "<what actually worked>",
+      "action_to_update": "actions/<category>/<file>.yml → <Action Name> → step description"
+    }
+  ]
+}

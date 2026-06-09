@@ -1,0 +1,36 @@
+# Environments — Test Data
+# Referenced as: ${testdata.environments.<key>.<field>}
+# The active environment is selected via configs/ai-test-config.yml → environment.target
+
+qa:
+  name: "QA"
+  base_url: "${env.QA_BASE_URL}"
+  api_url: "${env.QA_API_URL}"
+  db_host: "${env.QA_DB_HOST}"
+  flags:
+    debug_logging: true
+    mock_payments: true
+    mock_email: true
+    mock_sms: true
+
+uat:
+  name: "UAT"
+  base_url: "${env.UAT_BASE_URL}"
+  api_url: "${env.UAT_API_URL}"
+  db_host: "${env.UAT_DB_HOST}"
+  flags:
+    debug_logging: false
+    mock_payments: true
+    mock_email: false
+    mock_sms: false
+
+prod:
+  name: "Production"
+  base_url: "${env.PROD_BASE_URL}"
+  api_url: "${env.PROD_API_URL}"
+  db_host: "${env.PROD_DB_HOST}"
+  flags:
+    debug_logging: false
+    mock_payments: false
+    mock_email: false
+    mock_sms: false

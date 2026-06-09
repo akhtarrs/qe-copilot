@@ -1,0 +1,30 @@
+# Action Catalog — Master Index of All Actions
+# Every action referenced in test cases must be registered here.
+# The agent resolves step names → action file via this catalog.
+
+categories:
+
+  common:
+    file: actions/common/auth.yml
+    actions:
+      - id: login_as_admin
+        name: "Login as Admin"
+      - id: login_as_user
+        name: "Login as User"
+      - id: logout
+        name: "Logout"
+
+  navigation:
+    file: actions/common/navigation.yml
+    actions:
+      - id: navigate_to_home
+        name: "Navigate to Home"
+      # - id: navigate_to_<section>
+      #   name: "Navigate to <Section>"
+
+  # Add a category block per feature area:
+  # <feature>:
+  #   file: actions/<feature>/<feature>-actions.yml
+  #   actions:
+  #     - id: action_snake_case
+  #       name: "Action Title Case"
